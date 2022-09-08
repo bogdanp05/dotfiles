@@ -19,6 +19,13 @@ return require('packer').startup(function(use)
   tag = 'nightly' -- optional, updated every week. (see issue #1193)
 }
 
+-- Fuzzy finder
+  use {
+	  'nvim-telescope/telescope.nvim', tag = '0.1.0',
+	  requires = {{'nvim-lua/plenary.nvim'}}
+  }
+
+
 -- LSP
   use 'neovim/nvim-lspconfig'
 
@@ -33,5 +40,19 @@ return require('packer').startup(function(use)
       'saadparwaiz1/cmp_luasnip',
     },
   }
+
+  -- Comment toggler
+  use {
+    'numToStr/Comment.nvim',
+    config = function()
+        require('Comment').setup({
+                ignore = '^$',
+                toggler = {
+                    line = '<leader>/',
+                },
+            })
+    end
+  }
+
 
 end)
