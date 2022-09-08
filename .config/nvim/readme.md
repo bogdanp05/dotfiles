@@ -6,14 +6,16 @@ example `pyrightconfig.json` at the root of the project:
     "venvPath": "/Users/bogdan.petre/sennder/carrier-data/salesforce-consumer/",
     "venv": ".venv",
 }
+- nvim tree show gitignored files DONE
+- nvim tree does not expand .venv DONE 
+- telescope stop ignoring .files DONE 
+- comment line shortcut DONE
 
 
 Things left to configure:
 - stop switching tree on the right
-- nvim tree does not expand .venv
-- telescope stop ignoring .files
+- rebase from terminal
 - display .files shaded
-- comment line shortcut
 - indent line shortcut
 - start terminal with size 20
 - case insensitive search 
