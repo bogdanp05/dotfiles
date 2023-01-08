@@ -1,0 +1,4 @@
+{
+    "venvPath": "path/to/your/venv",
+    "venv": ".venv",
+}

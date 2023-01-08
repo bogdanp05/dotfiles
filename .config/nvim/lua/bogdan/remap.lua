@@ -23,6 +23,10 @@ nnoremap("<leader>l", ":wincmd l<CR>")
 nnoremap("<leader>j", ":wincmd j<CR>")
 nnoremap("<leader>k", ":wincmd k<CR>")
 nnoremap("<leader>w", ":wincmd q<CR>")
+nnoremap("<leader><up>", ":resize +3<CR>")
+nnoremap("<leader><down>", ":resize -3<CR>")
+nnoremap("<leader><left>", ":vertical resize +3<CR>")
+nnoremap("<leader><right>", ":vertical resize -3<CR>")
  
 -- Terminal --
 nnoremap("<leader>t", ":belowright 20sp term://zsh<CR>")

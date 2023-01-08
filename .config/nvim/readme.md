@@ -10,15 +10,18 @@ example `pyrightconfig.json` at the root of the project:
 - nvim tree does not expand .venv DONE 
 - telescope stop ignoring .files DONE 
 - comment line shortcut DONE
+- indent line shortcut DONE
 
 
 Things left to configure:
+- configure linter
 - stop switching tree on the right
 - rebase from terminal
 - display .files shaded
-- indent line shortcut
 - start terminal with size 20
 - case insensitive search 
 - case insensitive cmd search
 - autoreload nvim config
 - expand tree when opening file
+- git plugin
+- spellchecker 
