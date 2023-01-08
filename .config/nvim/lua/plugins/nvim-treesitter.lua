@@ -10,19 +10,19 @@ if not status_ok then
   return
 end
 
-nvim_treesitter.setup {
-  -- A list of parser names, or "all"
-  ensure_installed = {
-    'bash', 'css', 'html', 'javascript', 'json', 'lua',
-    'typescript', 'vim', 'go', 'graphql', 'python'
-   },
+require'nvim-treesitter.configs'.setup {
+    -- A list of parser names, or "all"
+    ensure_installed = {
+        'bash', 'css', 'html', 'javascript', 'json', 'lua',
+        'typescript', 'vim', 'go', 'graphql', 'python', 'terraform', 'hcl'
+    },
 
-  -- Install parsers synchronously (only applied to `ensure_installed`)
-  sync_install = false,
-  highlight = {
-    -- `false` will disable the whole extension
-    enable = true,
-  },
+    -- Install parsers synchronously (only applied to `ensure_installed`)
+    sync_install = false,
+    highlight = {
+        -- `false` will disable the whole extension
+        enable = true,
+    },
 }
 
 

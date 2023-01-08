@@ -1,9 +1,3 @@
--- examples for your init.lua
-
--- empty setup using defaults
-require("nvim-tree").setup()
-
--- OR setup with some options
 require("nvim-tree").setup({
   sort_by = "case_sensitive",
   open_on_tab = true,
@@ -11,7 +5,7 @@ require("nvim-tree").setup({
     adaptive_size = true,
     mappings = {
       list = {
-        { key = "u", action = "dir_up" },
+        { key = "-", action = "dir_up" },
       },
     },
   },
@@ -20,8 +14,14 @@ require("nvim-tree").setup({
   },
   filters = {
     dotfiles = false,
+    custom = {"^.git$", "__pycache__"}
   },
   git = {
       ignore = false,
   },
+  actions = {
+      change_dir = {
+          restrict_above_cwd = true,
+      }
+  }
 })
