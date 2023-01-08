@@ -13,11 +13,13 @@ example `pyrightconfig.json` at the root of the project:
 - indent line shortcut DONE
 
 
-Things left to configure:
-- configure linter
-- stop switching tree on the right
-- rebase from terminal
-- display .files shaded
+To do:
+- [x] expand dir in nvim tree
+- [ ] format on save
+- [ ] configure linter
+- [ ] stop switching tree on the right
+- [ ] rebase from terminal
+- [ ] display .files shaded
 - start terminal with size 20
 - case insensitive search 
 - case insensitive cmd search
