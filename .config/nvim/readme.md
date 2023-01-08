@@ -2,10 +2,13 @@ Things fixed:
 - show .files and .dirs in nvim tree DONE
 - set python interpreter DONE
 example `pyrightconfig.json` at the root of the project:
+```json
 {
-    "venvPath": "/Users/bogdan.petre/sennder/carrier-data/salesforce-consumer/",
+    "venvPath": "path/to/your/venv",
     "venv": ".venv",
 }
+```
+OR just activate the venv in the terminal before starting nvim
 - nvim tree show gitignored files DONE
 - nvim tree does not expand .venv DONE 
 - telescope stop ignoring .files DONE 
@@ -27,3 +30,5 @@ To do:
 - expand tree when opening file
 - git plugin
 - spellchecker 
+- purge line from git history
+- `.md` previewer

@@ -2,7 +2,7 @@ require("nvim-tree").setup({
   sort_by = "case_sensitive",
   open_on_tab = true,
   view = {
-    adaptive_size = true,
+    adaptive_size = false,
     mappings = {
       list = {
         { key = "-", action = "dir_up" },
@@ -23,5 +23,8 @@ require("nvim-tree").setup({
       change_dir = {
           restrict_above_cwd = true,
       }
-  }
+  },
+  update_focused_file = {
+      enable = true,
+  },
 })
