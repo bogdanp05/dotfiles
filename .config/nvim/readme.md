@@ -23,6 +23,7 @@ To do:
 - [ ] stop switching tree on the right
 - [ ] rebase from terminal
 - [ ] display .files shaded
+- [ ] fuzzy finder not finding .gitlab-ci.yml
 - start terminal with size 20
 - case insensitive search 
 - case insensitive cmd search

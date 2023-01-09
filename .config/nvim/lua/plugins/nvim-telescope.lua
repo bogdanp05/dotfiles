@@ -4,7 +4,7 @@ require('telescope').setup{
             "__pycache__",
             ".venv",
             ".mypy_cache",
-            ".git",
+            ".git/",
             ".pytest_cache",
     }
 } 
