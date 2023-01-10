@@ -13,9 +13,11 @@ nnoremap("<leader>pv", "<cmd>Ex<CR>")
 
 -- Reload configuration without restart nvim
 map('n', '<leader>r', ':so %<CR>')
-
--- General
+-- Write buffer
 nnoremap("<leader>s", ":w <CR>")
+-- Position cursor to the middle of the screen when searching
+nnoremap("n", "nzz")
+nnoremap("N", "Nzz")
 
 -- Control window --
 nnoremap("<leader>h", ":wincmd h<CR>")
@@ -41,3 +43,6 @@ map('', "<leader>fh", ":lua require('telescope.builtin').help_tags()<CR>")
 map('', "<leader>km", ":lua require('telescope.builtin').keymaps()<CR>")
 map('', "<leader>fr", ":lua require('telescope.builtin').resume()<CR>")
 
+
+-- Default mappings to remember
+-- Splits: <C-v> for vertical splits, <C-x> for horizontal splits

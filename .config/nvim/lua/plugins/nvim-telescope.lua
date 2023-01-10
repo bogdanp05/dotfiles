@@ -6,8 +6,13 @@ require('telescope').setup{
             ".mypy_cache",
             ".git/",
             ".pytest_cache",
+        }
+    }, 
+    pickers = {
+        find_files = {
+            no_ignore = true
+        }
     }
-} 
 }
 
 
