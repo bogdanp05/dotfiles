@@ -18,6 +18,9 @@ nnoremap("<leader>s", ":w <CR>")
 -- Position cursor to the middle of the screen when searching
 nnoremap("n", "nzz")
 nnoremap("N", "Nzz")
+-- ...and when moving up and down half a page
+nnoremap("<C-u>", "<C-u>zz")
+nnoremap("<C-d>", "<C-d>zz")
 
 -- Control window --
 nnoremap("<leader>h", ":wincmd h<CR>")

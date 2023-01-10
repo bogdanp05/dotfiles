@@ -1,6 +1,4 @@
-Things fixed:
-- show .files and .dirs in nvim tree DONE
-- set python interpreter DONE
+Configuring python interpreter and virtual env:
 example `pyrightconfig.json` at the root of the project:
 ```json
 {
@@ -8,28 +6,27 @@ example `pyrightconfig.json` at the root of the project:
     "venv": ".venv",
 }
 ```
-OR just activate the venv in the terminal before starting nvim
-- nvim tree show gitignored files DONE
-- nvim tree does not expand .venv DONE 
-- telescope stop ignoring .files DONE 
-- comment line shortcut DONE
-- indent line shortcut DONE
-
 
 To do:
+- [x] show .files and .dirs in nvim tree 
+- [x] nvim tree show gitignored files 
+- [x] nvim tree does not expand .venv  
+- [x] telescope stop ignoring .files  
+- [x] comment line shortcut 
+- [x] indent line shortcut 
 - [x] expand dir in nvim tree
+- [x] spellchecker 
+- [x] fuzzy finder not finding .gitlab-ci.yml
+- [x] start terminal with size 20
+- [x] expand tree when opening file
 - [ ] format on save
 - [ ] configure linter
 - [ ] stop switching tree on the right
 - [ ] rebase from terminal
 - [ ] display .files shaded
-- [ ] fuzzy finder not finding .gitlab-ci.yml
-- start terminal with size 20
-- case insensitive search 
-- case insensitive cmd search
-- autoreload nvim config
-- expand tree when opening file
-- git plugin
-- spellchecker 
-- purge line from git history
-- `.md` previewer
+- [ ] case insensitive search 
+- [ ] case insensitive cmd search
+- [ ] autoreload nvim config
+- [ ] git plugin
+- [ ] purge line from git history
+- [ ] `.md` previewer
