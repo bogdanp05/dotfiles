@@ -63,4 +63,8 @@ return require('packer').startup(function(use)
      }
 
 
+     -- Variable highlighting
+     use 'RRethy/vim-illuminate'
+
+
 end)

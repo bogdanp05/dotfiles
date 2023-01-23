@@ -19,6 +19,7 @@ To do:
 - [x] fuzzy finder not finding .gitlab-ci.yml
 - [x] start terminal with size 20
 - [x] expand tree when opening file
+- [x] variable highlighting
 - [ ] format on save
 - [ ] configure linter
 - [ ] stop switching tree on the right
