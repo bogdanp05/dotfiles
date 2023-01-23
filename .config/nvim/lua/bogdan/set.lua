@@ -12,7 +12,10 @@ vim.opt.incsearch = true
 vim.opt.smartindent = true
 vim.opt.wrap = false
 vim.opt.termguicolors = true
+vim.opt.autowrite = true
 vim.opt.autowriteall = true
 vim.opt.guicursor = "a:block,i-ci-ve:ver50,a:blinkwait300-blinkoff300-blinkon300-Cursor"
+vim.opt.spell = true
+vim.opt.spelllang = "en_us"
 
 vim.g.mapleader = " "
