@@ -1,6 +1,8 @@
 import math
 from typing import Optional
+
 from pydantic import BaseModel
+
 
 class MyClass(BaseModel):
     value: int
@@ -10,7 +12,8 @@ class MyClass(BaseModel):
 def get_square_root(x: int) -> float:
     if x < 0:
         raise ValueError(f"Input must be a natural number, {x} given")
-    return math.sqrt(x) 
+    return math.sqrt(x)
+
 
 if __name__ == "__main__":
     print(get_square_root(16))

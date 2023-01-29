@@ -21,6 +21,8 @@ nnoremap("N", "Nzz")
 -- ...and when moving up and down half a page
 nnoremap("<C-u>", "<C-u>zz")
 nnoremap("<C-d>", "<C-d>zz")
+-- ...and when jumping back in the code
+nnoremap("<C-o>", "<C-o>zz")
 
 -- Control window --
 nnoremap("<leader>h", ":wincmd h<CR>")

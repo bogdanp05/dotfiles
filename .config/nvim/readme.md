@@ -20,7 +20,7 @@ To do:
 - [x] start terminal with size 20
 - [x] expand tree when opening file
 - [x] variable highlighting
-- [ ] format on save
+- [x] format on save
 - [ ] configure linter
 - [ ] stop switching tree on the right
 - [ ] rebase from terminal

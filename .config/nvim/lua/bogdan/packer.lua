@@ -67,4 +67,8 @@ return require('packer').startup(function(use)
      use 'RRethy/vim-illuminate'
 
 
+     -- Auto formatting
+     use 'jose-elias-alvarez/null-ls.nvim'
+
+
 end)
