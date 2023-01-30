@@ -111,6 +111,11 @@ _G.packer_plugins = {
     path = "/Users/bogdan.petre/.local/share/nvim/site/pack/packer/start/fidget.nvim",
     url = "https://github.com/j-hui/fidget.nvim"
   },
+  ["markdown-preview.nvim"] = {
+    loaded = true,
+    path = "/Users/bogdan.petre/.local/share/nvim/site/pack/packer/start/markdown-preview.nvim",
+    url = "https://github.com/iamcco/markdown-preview.nvim"
+  },
   ["null-ls.nvim"] = {
     loaded = true,
     path = "/Users/bogdan.petre/.local/share/nvim/site/pack/packer/start/null-ls.nvim",

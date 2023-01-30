@@ -21,6 +21,7 @@ To do:
 - [x] expand tree when opening file
 - [x] variable highlighting
 - [x] format on save
+- [x] `.md` previewer
 - [ ] configure linter
 - [ ] stop switching tree on the right
 - [ ] rebase from terminal
@@ -30,4 +31,3 @@ To do:
 - [ ] autoreload nvim config
 - [ ] git plugin
 - [ ] purge line from git history
-- [ ] `.md` previewer
