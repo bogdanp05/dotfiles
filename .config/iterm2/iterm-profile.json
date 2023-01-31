@@ -274,6 +274,12 @@
       "Action" : 10,
       "Text" : "[15;2~"
     },
+    "0x63-0x100000-0x8" : {
+      "Version" : 1,
+      "Action" : 10,
+      "Text" : "c",
+      "Label" : ""
+    },
     "0xf701-0x220000" : {
       "Action" : 10,
       "Text" : "[1;2B"

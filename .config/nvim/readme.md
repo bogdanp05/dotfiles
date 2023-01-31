@@ -22,6 +22,7 @@ To do:
 - [x] variable highlighting
 - [x] format on save
 - [x] `.md` previewer
+- [x] use CMD + C to copy in visual mode
 - [ ] configure linter
 - [ ] stop switching tree on the right
 - [ ] rebase from terminal
