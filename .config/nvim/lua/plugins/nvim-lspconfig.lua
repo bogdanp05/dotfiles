@@ -136,7 +136,7 @@ end
 -- Use a loop to conveniently call 'setup' on multiple servers and
 -- map buffer local keybindings when the language server attaches.
 -- Add your language server below:
-local servers = { "pyright", "tsserver", "terraformls" }
+local servers = {"tsserver", "terraformls" }
 
 -- Call setup
 for _, lsp in ipairs(servers) do
@@ -150,3 +150,19 @@ for _, lsp in ipairs(servers) do
 		},
 	})
 end
+
+-- Treat pyright differently
+lspconfig['pyright'].setup{
+    on_attach = on_attach,
+    flags = lsp_flags,
+    settings = {
+        python = {
+            analysis = {
+                autoSearchPaths = true,
+                diagnosticMode = "workspace",
+                useLibraryCodeForTypes = true,
+                typeCheckingMode = "off",
+            }
+        }
+    }
+}

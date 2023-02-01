@@ -1,6 +1,7 @@
 local null_ls = require("null-ls")
 
 local formatting = null_ls.builtins.formatting
+local diagnostics = null_ls.builtins.diagnostics
 
 -- You gotta have these formatters available on your path. You can validate this by running e.g.
 -- :echo executable('black')
@@ -13,6 +14,8 @@ local sources = {
 	-- Python
 	formatting.black,
 	formatting.isort,
+	diagnostics.flake8,
+	diagnostics.mypy,
 }
 
 -- Set up auto formatting on save

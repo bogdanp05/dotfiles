@@ -23,9 +23,9 @@ To do:
 - [x] format on save
 - [x] `.md` previewer
 - [x] use CMD + C to copy in visual mode
-- [ ] configure linter
+- [x] configure linter
+- [x] ~~rebase from terminal~~ can't be done; now using multiple tab workflow
 - [ ] stop switching tree on the right
-- [ ] rebase from terminal
 - [ ] display .files shaded
 - [ ] case insensitive search 
 - [ ] case insensitive cmd search
