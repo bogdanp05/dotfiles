@@ -20,14 +20,15 @@ To do:
 - [x] start terminal with size 20
 - [x] expand tree when opening file
 - [x] variable highlighting
-- [ ] format on save
-- [ ] configure linter
+- [x] format on save
+- [x] `.md` previewer
+- [x] use CMD + C to copy in visual mode
+- [x] configure linter
+- [x] ~~rebase from terminal~~ can't be done; now using multiple tab workflow
+- [x] case insensitive search 
 - [ ] stop switching tree on the right
-- [ ] rebase from terminal
 - [ ] display .files shaded
-- [ ] case insensitive search 
 - [ ] case insensitive cmd search
 - [ ] autoreload nvim config
 - [ ] git plugin
 - [ ] purge line from git history
-- [ ] `.md` previewer

@@ -1,6 +1,5 @@
-vim.g.tokyonight_transparent_sidebar = true
-vim.g.tokyonight_transparent = true
-vim.opt.background = "dark"
-
-vim.cmd[[colorscheme tokyonight-storm]]
-
+local status, _ = pcall(vim.cmd, "colorscheme nightfly")
+if not status then
+	print("Colorscheme not found")
+	return
+end
