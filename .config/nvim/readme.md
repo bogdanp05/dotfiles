@@ -25,9 +25,9 @@ To do:
 - [x] use CMD + C to copy in visual mode
 - [x] configure linter
 - [x] ~~rebase from terminal~~ can't be done; now using multiple tab workflow
+- [x] case insensitive search 
 - [ ] stop switching tree on the right
 - [ ] display .files shaded
-- [ ] case insensitive search 
 - [ ] case insensitive cmd search
 - [ ] autoreload nvim config
 - [ ] git plugin
