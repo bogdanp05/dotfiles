@@ -69,7 +69,7 @@ return packer.startup(function(use)
 	use("saadparwaiz1/cmp_luasnip") -- for autocompletion
 	use("rafamadriz/friendly-snippets") -- useful snippets
 
-	-- Managing and installing LSP servers
+	-- Managing and installing LSP servers, linters, and formatters
 	use("williamboman/mason.nvim") -- in charge of managing LSP servers, linters & formatters
 	use("williamboman/mason-lspconfig.nvim") -- bridges gap b/w mason & lspconfig
 
@@ -80,6 +80,10 @@ return packer.startup(function(use)
 	use("jose-elias-alvarez/typescript.nvim") -- additional functionality for typescript server (e.g. rename file & update imports)
 	use("onsails/lspkind.nvim") -- vs-code like icons for autocompletion
 
+	-- Formatting & linting
+	use("jose-elias-alvarez/null-ls.nvim") -- configure formatters & linters
+	use("jayp0521/mason-null-ls.nvim") -- bridges gap b/w mason & null-ls
+
 	-- Treesitter for syntax highlighting
 	use({
 		"nvim-treesitter/nvim-treesitter",
@@ -88,9 +92,6 @@ return packer.startup(function(use)
 
 	-- Variable highlighting
 	use("RRethy/vim-illuminate")
-
-	-- Auto formatting
-	use("jose-elias-alvarez/null-ls.nvim")
 
 	-- Markdown preview
 	use({
