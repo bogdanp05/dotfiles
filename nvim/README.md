@@ -21,6 +21,7 @@ To do:
 - [x] autoreload nvim config
 - [x] case insensitive cmd search
 - [x] add snippets
+- [x] refactor - rename
 - [ ] configure diagnostics to only get 1 instead of 3
 - [ ] configure code actions
 - [ ] display .files shaded

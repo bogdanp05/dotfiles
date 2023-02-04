@@ -9,6 +9,9 @@ class MyClass(BaseModel):
     name: Optional[str]
 
 
+c = MyClass()
+
+
 def get_square_root(x: int) -> float:
     if x < 0:
         raise ValueError(f"Input must be a natural number, {x} given")

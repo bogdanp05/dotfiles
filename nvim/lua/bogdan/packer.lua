@@ -45,9 +45,9 @@ return packer.startup(function(use)
 
 	-- Tree for explorer view
 	use({
-		"kyazdani42/nvim-tree.lua",
+		"nvim-tree/nvim-tree.lua",
 		requires = {
-			"kyazdani42/nvim-web-devicons", -- optional, for file icons
+			"nvim-tree/nvim-web-devicons", -- optional, for file icons
 		},
 		tag = "nightly", -- optional, updated every week. (see issue #1193)
 	})
@@ -69,36 +69,21 @@ return packer.startup(function(use)
 	use("saadparwaiz1/cmp_luasnip") -- for autocompletion
 	use("rafamadriz/friendly-snippets") -- useful snippets
 
-	-- -- Autocomplete
-	-- use({
-	-- 	"hrsh7th/nvim-cmp",
-	-- 	requires = {
-	-- 		"L3MON4D3/LuaSnip",
-	-- 		"hrsh7th/cmp-nvim-lsp",
-	-- 		"hrsh7th/cmp-path",
-	-- 		"hrsh7th/cmp-buffer",
-	-- 		"saadparwaiz1/cmp_luasnip",
-	-- 	},
-	-- })
+	-- Managing and installing LSP servers
+	use("williamboman/mason.nvim") -- in charge of managing LSP servers, linters & formatters
+	use("williamboman/mason-lspconfig.nvim") -- bridges gap b/w mason & lspconfig
+
+	-- Configuring lsp servers
+	use("neovim/nvim-lspconfig") -- easily configure language servers
+	use("hrsh7th/cmp-nvim-lsp") -- for autocompletion
+	use({ "glepnir/lspsaga.nvim", branch = "main" }) -- enhanced lsp uis
+	use("jose-elias-alvarez/typescript.nvim") -- additional functionality for typescript server (e.g. rename file & update imports)
+	use("onsails/lspkind.nvim") -- vs-code like icons for autocompletion
 
 	-- Treesitter for syntax highlighting
 	use({
 		"nvim-treesitter/nvim-treesitter",
 		run = ":TSUpdate",
-	})
-
-	-- LSP
-	use({
-		"neovim/nvim-lspconfig",
-		requires = {
-			"jose-elias-alvarez/null-ls.nvim",
-			{
-				"j-hui/fidget.nvim",
-				config = function()
-					require("fidget").setup({})
-				end,
-			},
-		},
 	})
 
 	-- Variable highlighting
