@@ -1,12 +1,3 @@
-Configuring python interpreter and virtual env:
-example `pyrightconfig.json` at the root of the project:
-```json
-{
-    "venvPath": "path/to/your/venv",
-    "venv": ".venv",
-}
-```
-
 To do:
 - [x] show .files and .dirs in nvim tree 
 - [x] nvim tree show gitignored files 
@@ -26,9 +17,10 @@ To do:
 - [x] configure linter
 - [x] ~~rebase from terminal~~ can't be done; now using multiple tab workflow
 - [x] case insensitive search 
+- [x] nice status line
+- [x] autoreload nvim config
 - [ ] stop switching tree on the right
 - [ ] display .files shaded
 - [ ] case insensitive cmd search
-- [ ] autoreload nvim config
 - [ ] git plugin
 - [ ] purge line from git history
