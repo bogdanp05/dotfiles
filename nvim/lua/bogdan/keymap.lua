@@ -5,10 +5,19 @@ local keymap = vim.keymap
 -- nvim-tree
 keymap.set("n", "<leader>e", ":NvimTreeToggle <CR>")
 
+-- telescope
+keymap.set(
+	"",
+	"<leader>fs",
+	":lua require('telescope.builtin').grep_string({ search = vim.fn.input('Grep For >')})<CR>"
+)
+keymap.set("n", "<leader>ff", ":lua require('telescope.builtin').find_files({hidden=true})<CR>")
+keymap.set("n", "<leader>fg", ":lua require('telescope.builtin').live_grep()<CR>")
+keymap.set("n", "<leader>fh", ":lua require('telescope.builtin').help_tags()<CR>")
+keymap.set("n", "<leader>km", ":lua require('telescope.builtin').keymaps()<CR>")
+keymap.set("n", "<leader>fr", ":lua require('telescope.builtin').resume()<CR>")
 keymap.set("n", "<leader>pv", "<cmd>Ex<CR>")
 
--- Write buffer
-keymap.set("n", "<leader>s", ":w <CR>")
 -- Position cursor to the middle of the screen when searching
 keymap.set("n", "n", "nzz")
 keymap.set("n", "N", "Nzz")
@@ -33,18 +42,6 @@ keymap.set("n", "<leader><right>", ":vertical resize -3<CR>")
 keymap.set("n", "<leader>t", ":belowright 20sp term://zsh<CR>")
 keymap.set("n", "<leader>vt", ":belowright 20vs term://zsh<CR> :resize 20<CR>")
 keymap.set("n", "<Esc>", "<C-\\><C-n><CR>")
-
--- Telescope
-keymap.set(
-	"",
-	"<leader>fs",
-	":lua require('telescope.builtin').grep_string({ search = vim.fn.input('Grep For >')})<CR>"
-)
-keymap.set("", "<leader>ff", ":lua require('telescope.builtin').find_files({hidden=true})<CR>")
-keymap.set("", "<leader>fg", ":lua require('telescope.builtin').live_grep()<CR>")
-keymap.set("", "<leader>fh", ":lua require('telescope.builtin').help_tags()<CR>")
-keymap.set("", "<leader>km", ":lua require('telescope.builtin').keymaps()<CR>")
-keymap.set("", "<leader>fr", ":lua require('telescope.builtin').resume()<CR>")
 
 -- Default mappings to remember
 -- Splits: <C-v> for vertical splits, <C-x> for horizontal splits

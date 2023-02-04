@@ -1,4 +1,4 @@
-.config/nvim/plugin/packer_compiled.lua
+nvim/plugin/packer_compiled.lua
 .DS_Store
 AWSVPNClient
 configstore

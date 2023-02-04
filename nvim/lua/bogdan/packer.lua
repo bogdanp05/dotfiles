@@ -55,17 +55,14 @@ return packer.startup(function(use)
 	-- Status line
 	use("nvim-lualine/lualine.nvim")
 
+	-- Fuzzy finding w/ telescope
+	use({ "nvim-telescope/telescope-fzf-native.nvim", run = "make" }) -- dependency for better sorting performance
+	use({ "nvim-telescope/telescope.nvim", branch = "0.1.x" }) -- fuzzy finder
+
 	-- Treesitter for syntax highlighting
 	use({
 		"nvim-treesitter/nvim-treesitter",
 		run = ":TSUpdate",
-	})
-
-	-- Fuzzy finder
-	use({
-		"nvim-telescope/telescope.nvim",
-		tag = "0.1.0",
-		requires = { { "nvim-lua/plenary.nvim" } },
 	})
 
 	-- LSP
