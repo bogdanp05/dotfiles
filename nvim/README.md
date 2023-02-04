@@ -22,8 +22,9 @@ To do:
 - [x] case insensitive cmd search
 - [x] add snippets
 - [x] refactor - rename
-- [ ] configure diagnostics to only get 1 instead of 3
-- [ ] configure code actions
+- [x] git plugin
+- [x] configure diagnostics to only get 1 instead of 3
+- [x] configure code actions
+- [ ] check if I should use pyright. pylsp seems to not give all references
 - [ ] display .files shaded
-- [ ] git plugin
 - [ ] purge line from git history
