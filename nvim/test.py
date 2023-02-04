@@ -13,6 +13,8 @@ class MyClass(BaseModel):
 
 c = MyClass()
 
+c.name = "aefdef"
+
 
 def get_square_root(x: int) -> float:
     if x < 0:
