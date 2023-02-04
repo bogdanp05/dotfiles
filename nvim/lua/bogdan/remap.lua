@@ -2,9 +2,6 @@ vim.g.mapleader = " "
 
 local keymap = vim.keymap
 
--- general keymaps
-keymap.set("n", "x", "_x")
-
 -- nvim-tree
 keymap.set("n", "<leader>e", ":NvimTreeToggle <CR>")
 
