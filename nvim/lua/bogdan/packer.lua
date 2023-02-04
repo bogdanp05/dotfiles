@@ -90,6 +90,10 @@ return packer.startup(function(use)
 		run = ":TSUpdate",
 	})
 
+	-- Auto closing stuff
+	use("windwp/nvim-autopairs") -- autoclose parens, brackets, quotes, etc...
+	use({ "windwp/nvim-ts-autotag", after = "nvim-treesitter" }) -- autoclose tags
+
 	-- Variable highlighting
 	use("RRethy/vim-illuminate")
 
