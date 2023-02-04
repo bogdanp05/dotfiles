@@ -1,4 +1,4 @@
 require("bogdan.packer")
 require("bogdan.options")
-require("bogdan.remap")
+require("bogdan.keymap")
 print("hello from bogdan")
