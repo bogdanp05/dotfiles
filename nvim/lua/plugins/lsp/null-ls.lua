@@ -17,8 +17,8 @@ local sources = {
     -- Python
     formatting.black,
     formatting.isort,
-    -- diagnostics.flake8,
-    -- diagnostics.mypy,
+    diagnostics.flake8,
+    diagnostics.mypy,
 }
 
 -- Set up auto formatting on save
@@ -37,4 +37,12 @@ local on_attach = function(client, bufnr)
     end
 end
 
-null_ls.setup({ sources = sources, on_attach = on_attach })
+null_ls.setup({
+    sources = sources,
+    on_attach = on_attach,
+    diagnostics_format = "[#{c}] #{m} (#{s})",
+    should_attach = function(bufnr)
+        -- I don't want null-ls to attach in my virtual env
+        return not vim.api.nvim_buf_get_name(bufnr):match("venv/lib/")
+    end,
+})

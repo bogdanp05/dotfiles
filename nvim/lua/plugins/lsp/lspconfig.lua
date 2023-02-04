@@ -102,12 +102,24 @@ lspconfig["sumneko_lua"].setup({
 })
 
 -- configure python server
-lspconfig["pylsp"].setup({
+-- lspconfig["pylsp"].setup({
+--     capabilities = capabilities,
+--     on_attach = on_attach,
+--     settings = {
+--         pylsp = {
+--             configurationSources = { "flake8" },
+--         },
+--     },
+-- })
+lspconfig["pyright"].setup({
     capabilities = capabilities,
     on_attach = on_attach,
     settings = {
-        pylsp = {
-            configurationSources = { "flake8" },
+        python = {
+            analysis = {
+                -- I want to use mypy type checker, not pyright's
+                typeCheckingMode = "off",
+            },
         },
     },
 })

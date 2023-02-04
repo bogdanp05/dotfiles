@@ -1,19 +1,15 @@
 import math
 from typing import Optional
 
-from pydantic import BaseModel
 
 # Try a very long comment that drags on forever because you maybe added an URL or something like that idk
+class MyClass:
+    def __init__(self, value: int, name: Optional[str] = None) -> None:
+        self.value = value
+        self.name = name
 
 
-class MyClass(BaseModel):
-    value: int
-    name: Optional[str]
-
-
-c = MyClass()
-
-c.name = "aefdef"
+c = MyClass(value="bal")
 
 
 def get_square_root(x: int) -> float:
@@ -25,3 +21,4 @@ def get_square_root(x: int) -> float:
 if __name__ == "__main__":
     print(get_square_root(16))
     print(get_square_root(15))
+    get_square_root("")
