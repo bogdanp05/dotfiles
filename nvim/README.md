@@ -19,8 +19,10 @@ To do:
 - [x] case insensitive search 
 - [x] nice status line
 - [x] autoreload nvim config
-- [ ] stop switching tree on the right
+- [x] case insensitive cmd search
+- [x] add snippets
+- [ ] configure diagnostics to only get 1 instead of 3
+- [ ] configure code actions
 - [ ] display .files shaded
-- [ ] case insensitive cmd search
 - [ ] git plugin
 - [ ] purge line from git history
