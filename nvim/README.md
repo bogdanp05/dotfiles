@@ -19,8 +19,12 @@ To do:
 - [x] case insensitive search 
 - [x] nice status line
 - [x] autoreload nvim config
-- [ ] stop switching tree on the right
+- [x] case insensitive cmd search
+- [x] add snippets
+- [x] refactor - rename
+- [x] git plugin
+- [x] configure diagnostics to only get 1 instead of 3
+- [x] configure code actions
+- [ ] check if I should use pyright. pylsp seems to not give all references
 - [ ] display .files shaded
-- [ ] case insensitive cmd search
-- [ ] git plugin
 - [ ] purge line from git history

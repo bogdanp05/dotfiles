@@ -7,6 +7,7 @@ end
 vim.g.loaded = 1
 vim.g.loaded_netrwPlugin = 1
 
+-- TODO: figure out why this only works when manually sourcing the file
 -- change color for arrows in tree to light blue
 vim.cmd([[ highlight NvimTreeIndentMarker guifg=#3FC5FF ]])
 
