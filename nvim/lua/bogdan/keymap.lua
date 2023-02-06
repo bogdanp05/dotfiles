@@ -11,7 +11,7 @@ keymap.set(
 	"<leader>fs",
 	":lua require('telescope.builtin').grep_string({ search = vim.fn.input('Grep For >')})<CR>"
 )
-keymap.set("n", "<leader>ff", ":lua require('telescope.builtin').find_files({hidden=true})<CR>")
+keymap.set("n", "<leader>ff", ":lua require('telescope.builtin').find_files()<CR>")
 keymap.set("n", "<leader>fg", ":lua require('telescope.builtin').live_grep()<CR>")
 keymap.set("n", "<leader>fh", ":lua require('telescope.builtin').help_tags()<CR>")
 keymap.set("n", "<leader>km", ":lua require('telescope.builtin').keymaps()<CR>")
