@@ -1,5 +1,5 @@
 -- I don't like to type a lot
-opt = vim.opt
+local opt = vim.opt
 
 opt.guicursor = ""
 
@@ -13,7 +13,6 @@ opt.softtabstop = 4
 opt.shiftwidth = 4
 opt.expandtab = true
 opt.autoindent = true
-opt.hlsearch = false
 opt.incsearch = true
 opt.smartindent = true
 
@@ -23,6 +22,8 @@ opt.wrap = false
 -- search setttings
 opt.ignorecase = true
 opt.smartcase = true
+opt.hlsearch = true
+opt.shortmess = opt.shortmess + "S"
 
 -- appearence
 opt.cursorline = true
