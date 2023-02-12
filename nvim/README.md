@@ -25,6 +25,7 @@ To do:
 - [x] git plugin
 - [x] configure diagnostics to only get 1 instead of 3
 - [x] configure code actions
-- [ ] check if I should use pyright. pylsp seems to not give all references
+- [x] use pyright for python lsp
+- [ ] figure out refactoring when moving files
 - [ ] display .files shaded
 - [ ] purge line from git history

@@ -61,6 +61,7 @@ return packer.startup(function(use)
 
 	-- Autocompletion
 	use("hrsh7th/nvim-cmp") -- completion plugin
+	use("hrsh7th/cmp-buffer") -- source for text in buffer
 	use("hrsh7th/cmp-path") -- source for file system paths
 
 	-- Managing and installing LSP servers, linters, and formatters
@@ -83,6 +84,7 @@ return packer.startup(function(use)
 		"nvim-treesitter/nvim-treesitter",
 		run = ":TSUpdate",
 	})
+	use("nvim-treesitter/nvim-treesitter-context")
 
 	-- Auto closing stuff
 	use("windwp/nvim-autopairs") -- autoclose parens, brackets, quotes, etc...

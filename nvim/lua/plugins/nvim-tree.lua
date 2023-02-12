@@ -7,9 +7,8 @@ end
 vim.g.loaded = 1
 vim.g.loaded_netrwPlugin = 1
 
--- TODO: figure out why this only works when manually sourcing the file
--- change color for arrows in tree to light blue
-vim.cmd([[ highlight NvimTreeIndentMarker guifg=#3FC5FF ]])
+-- set termguicolors to enable highlight groups
+vim.opt.termguicolors = true
 
 nvimtree.setup({
 	sort_by = "case_sensitive",
@@ -49,3 +48,24 @@ nvimtree.setup({
 		enable = true,
 	},
 })
+
+-- Open tree at startup: https://github.com/nvim-tree/nvim-tree.lua/wiki/Open-At-Startup
+local function open_nvim_tree(data)
+	-- buffer is a directory
+	local directory = vim.fn.isdirectory(data.file) == 1
+
+	if not directory then
+		return
+	end
+
+	-- change to the directory
+	vim.cmd.cd(data.file)
+
+	-- change color for arrows in tree to light blue
+	vim.cmd([[ highlight NvimTreeIndentMarker guifg=#3FC5FF ]])
+
+	-- open the tree
+	require("nvim-tree.api").tree.open()
+end
+
+vim.api.nvim_create_autocmd({ "VimEnter" }, { callback = open_nvim_tree })
