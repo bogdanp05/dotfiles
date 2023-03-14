@@ -3,3 +3,4 @@ nvim/plugin/packer_compiled.lua
 AWSVPNClient
 configstore
 jgit
+iterm2/AppSupport

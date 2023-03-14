@@ -26,6 +26,8 @@ To do:
 - [x] configure diagnostics to only get 1 instead of 3
 - [x] configure code actions
 - [x] use pyright for python lsp
+- [ ] get nvim-notify
+- [ ] make cmp show suggestions for newly added classes
 - [ ] figure out refactoring when moving files
 - [ ] display .files shaded
 - [ ] purge line from git history

@@ -14,7 +14,7 @@ if not mason_null_ls_status then
 end
 
 mason.setup({
-	-- I want to use env binaries if they exist; otherwise mason binaries
+	-- I want to use env binaries if they exist; otherwise mason binaries. This is for black and mypy
 	PATH = "append",
 })
 
@@ -26,9 +26,9 @@ mason_lspconfig.setup({
 		"cssls",
 		"tailwindcss",
 		"sumneko_lua",
-		-- "pylsp",
 		"pyright",
 		"terraformls",
+		"vuels",
 	},
 	automatic_installation = true,
 })
