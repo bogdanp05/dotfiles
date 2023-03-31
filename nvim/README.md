@@ -29,5 +29,3 @@ To do:
 - [ ] get nvim-notify
 - [ ] make cmp show suggestions for newly added classes
 - [ ] figure out refactoring when moving files
-- [ ] display .files shaded
-- [ ] purge line from git history
