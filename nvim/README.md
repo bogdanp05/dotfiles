@@ -29,3 +29,4 @@ To do:
 - [ ] get nvim-notify
 - [ ] make cmp show suggestions for newly added classes
 - [ ] figure out refactoring when moving files
+- [ ] fix fonts for the context thingy at the top
