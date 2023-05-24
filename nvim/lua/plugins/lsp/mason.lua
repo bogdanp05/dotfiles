@@ -21,13 +21,15 @@ mason.setup({
 mason_lspconfig.setup({
 	-- The list of available keys: https://github.com/williamboman/mason-lspconfig.nvim
 	ensure_installed = {
-		"tsserver",
-		"html",
 		"cssls",
-		"tailwindcss",
+		"gopls",
+		"html",
 		"lua_ls",
 		"pyright",
+		"rust_analyzer",
+		"tailwindcss",
 		"terraformls",
+		"tsserver",
 		"vuels",
 	},
 	automatic_installation = true,
@@ -36,12 +38,13 @@ mason_lspconfig.setup({
 mason_null_ls.setup({
 	-- list of formatters & linters for mason to install
 	ensure_installed = {
-		"jq",
-		"stylua",
 		"black",
-		"isort",
 		"flake8",
+		"isort",
+		"jq",
 		"mypy",
+		"rustfmt",
+		"stylua",
 	},
 	-- auto-install configured formatters & linters (with null-ls)
 	automatic_installation = true,

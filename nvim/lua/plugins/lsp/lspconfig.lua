@@ -127,3 +127,15 @@ lspconfig["vuels"].setup({
 	capabilities = capabilities,
 	on_attach = on_attach,
 })
+
+-- configure Vue server
+lspconfig["gopls"].setup({
+	capabilities = capabilities,
+	on_attach = on_attach,
+})
+
+-- configure Vue server
+lspconfig["rust_analyzer"].setup({
+	capabilities = capabilities,
+	on_attach = on_attach,
+})
