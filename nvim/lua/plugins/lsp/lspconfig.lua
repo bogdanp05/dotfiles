@@ -81,10 +81,11 @@ lspconfig["tailwindcss"].setup({
 })
 
 -- configure lua server (with special settings)
-lspconfig["sumneko_lua"].setup({
+lspconfig["lua_ls"].setup({
 	capabilities = capabilities,
 	on_attach = on_attach,
-	settings = { -- custom settings for lua
+	settings = {
+		-- custom settings for lua
 		Lua = {
 			-- make the language server recognize "vim" global
 			diagnostics = {
@@ -102,15 +103,6 @@ lspconfig["sumneko_lua"].setup({
 })
 
 -- configure python server
--- lspconfig["pylsp"].setup({
---     capabilities = capabilities,
---     on_attach = on_attach,
---     settings = {
---         pylsp = {
---             configurationSources = { "flake8" },
---         },
---     },
--- })
 lspconfig["pyright"].setup({
 	capabilities = capabilities,
 	on_attach = on_attach,
@@ -126,6 +118,24 @@ lspconfig["pyright"].setup({
 
 -- configure terraform server
 lspconfig["terraformls"].setup({
+	capabilities = capabilities,
+	on_attach = on_attach,
+})
+
+-- configure Vue server
+lspconfig["vuels"].setup({
+	capabilities = capabilities,
+	on_attach = on_attach,
+})
+
+-- configure Vue server
+lspconfig["gopls"].setup({
+	capabilities = capabilities,
+	on_attach = on_attach,
+})
+
+-- configure Vue server
+lspconfig["rust_analyzer"].setup({
 	capabilities = capabilities,
 	on_attach = on_attach,
 })
