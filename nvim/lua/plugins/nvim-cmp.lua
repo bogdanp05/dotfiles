@@ -10,6 +10,9 @@ end
 
 vim.opt.completeopt = "menu,menuone,noselect"
 
+-- by default, cmp is on
+vim.g.cmptoggle = true
+
 cmp.setup({
 	mapping = cmp.mapping.preset.insert({
 		["<C-k>"] = cmp.mapping.select_prev_item(), -- previous suggestion
@@ -50,4 +53,11 @@ cmp.setup({
 			ellipsis_char = "...",
 		}),
 	},
+
+	-- configure toggling cmp on and off
+	enabled = function()
+		return vim.g.cmptoggle
+	end,
 })
+
+vim.keymap.set("n", "<leader>cmp", "<cmd>lua vim.g.cmptoggle = not vim.g.cmptoggle<CR>", { desc = "toggle nvim-cmp" })
