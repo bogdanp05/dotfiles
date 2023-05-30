@@ -6,12 +6,13 @@ end
 telescope.setup({
 	defaults = {
 		file_ignore_patterns = {
-			"__pycache__",
-			".venv",
-			".mypy_cache",
 			".git/",
+			".mypy_cache",
 			".pytest_cache",
+			".venv",
+			"__pycache__",
 			"node_modules",
+			"target/debug",
 		},
 	},
 	pickers = {
