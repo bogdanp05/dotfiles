@@ -57,13 +57,12 @@ return packer.startup(function(use)
 
 	-- Fuzzy finding w/ telescope
 	use({ "nvim-telescope/telescope-fzf-native.nvim", run = "make" }) -- dependency for better sorting performance
-	use({ "nvim-telescope/telescope.nvim", branch = "0.1.x" }) -- fuzzy finder
 	use({
-		"nvim-telescope/telescope.nvim", -- fuzzy finder
+		"nvim-telescope/telescope.nvim",
 		branch = "0.1.x",
 		requires = { { "nvim-telescope/telescope-live-grep-args.nvim" } },
 		config = function()
-			require("telescope").load_extension("live_grep_args") -- extension for grepping in subdir
+			require("telescope").load_extension("live_grep_args") -- fuzzy finder
 		end,
 	})
 
@@ -71,9 +70,6 @@ return packer.startup(function(use)
 	use("hrsh7th/nvim-cmp") -- completion plugin
 	use("hrsh7th/cmp-buffer") -- source for text in buffer
 	use("hrsh7th/cmp-path") -- source for file system paths
-	-- Snippets
-	use("L3MON4D3/LuaSnip") -- snippet engine
-	use("saadparwaiz1/cmp_luasnip") -- for autocompletion
 
 	-- Managing and installing LSP servers, linters, and formatters
 	use("williamboman/mason.nvim") -- in charge of managing LSP servers, linters & formatters
@@ -113,5 +109,11 @@ return packer.startup(function(use)
 		run = function()
 			vim.fn["mkdp#util#install"]()
 		end,
+	})
+
+	-- Navigate between nvim and tmux
+	use({
+		"christoomey/vim-tmux-navigator",
+		lazy = false,
 	})
 end)
