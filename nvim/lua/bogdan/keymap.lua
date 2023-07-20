@@ -12,7 +12,8 @@ keymap.set(
 	":lua require('telescope.builtin').grep_string({ search = vim.fn.input('Grep For >')})<CR>"
 )
 keymap.set("n", "<leader>ff", ":lua require('telescope.builtin').find_files()<CR>")
-keymap.set("n", "<leader>fg", ":lua require('telescope.builtin').live_grep()<CR>")
+-- keymap.set("n", "<leader>fg", ":lua require('telescope.builtin').live_grep()<CR>")
+keymap.set("n", "<leader>fg", ":lua require('telescope').extensions.live_grep_args.live_grep_args()<CR>")
 keymap.set("n", "<leader>fh", ":lua require('telescope.builtin').help_tags()<CR>")
 keymap.set("n", "<leader>km", ":lua require('telescope.builtin').keymaps()<CR>")
 keymap.set("n", "<leader>fr", ":lua require('telescope.builtin').resume()<CR>")
@@ -28,10 +29,18 @@ keymap.set("n", "<C-d>", "<C-d>zz")
 keymap.set("n", "<C-o>", "<C-o>zz")
 
 -- Control window --
-keymap.set("n", "<leader>h", ":wincmd h<CR>")
-keymap.set("n", "<leader>l", ":wincmd l<CR>")
-keymap.set("n", "<leader>j", ":wincmd j<CR>")
-keymap.set("n", "<leader>k", ":wincmd k<CR>")
+-- keymap.set("n", "<leader>h", ":wincmd h<CR>")
+-- keymap.set("n", "<leader>l", ":wincmd l<CR>")
+-- keymap.set("n", "<leader>j", ":wincmd j<CR>")
+-- keymap.set("n", "<leader>k", ":wincmd k<CR>")
+
+-- Use Tmux Navigator to move between windows
+-- (no idea why this works for both <C-h> and <leader>h)
+keymap.set("n", "<leader>h", "<cmd> TmuxNavigateLeft<CR>")
+keymap.set("n", "<leader>l", "<cmd> TmuxNavigateRight<CR>")
+keymap.set("n", "<leader>j", "<cmd> TmuxNavigateDown<CR>")
+keymap.set("n", "<leader>k", "<cmd> TmuxNavigateUp<CR>")
+
 keymap.set("n", "<leader>w", ":wincmd q<CR>")
 keymap.set("n", "<leader><up>", ":resize +3<CR>")
 keymap.set("n", "<leader><down>", ":resize -3<CR>")
