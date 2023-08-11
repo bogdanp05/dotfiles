@@ -8,6 +8,7 @@ telescope.setup({
 		file_ignore_patterns = {
 			"__pycache__",
 			".venv",
+			".mypy%-caches",
 			".mypy_cache",
 			".git/",
 			".pytest_cache",
