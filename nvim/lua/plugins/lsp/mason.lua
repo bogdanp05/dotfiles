@@ -21,6 +21,7 @@ mason.setup({
 mason_lspconfig.setup({
 	-- The list of available keys: https://github.com/williamboman/mason-lspconfig.nvim
 	ensure_installed = {
+		"clangd",
 		"cssls",
 		"gopls",
 		"html",
