@@ -30,12 +30,6 @@ keymap.set("n", "<C-d>", "<C-d>zz")
 -- ...and when jumping back in the code
 keymap.set("n", "<C-o>", "<C-o>zz")
 
--- Control window --
--- keymap.set("n", "<leader>h", ":wincmd h<CR>")
--- keymap.set("n", "<leader>l", ":wincmd l<CR>")
--- keymap.set("n", "<leader>j", ":wincmd j<CR>")
--- keymap.set("n", "<leader>k", ":wincmd k<CR>")
-
 -- Use Tmux Navigator to move between windows
 -- (no idea why this works for both <C-h> and <leader>h)
 keymap.set("n", "<leader>h", "<cmd> TmuxNavigateLeft<CR>")
@@ -56,3 +50,6 @@ keymap.set("n", "<Esc>", "<C-\\><C-n><CR>")
 
 -- Default mappings to remember
 -- Splits: <C-v> for vertical splits, <C-x> for horizontal splits
+
+-- Copilot, https://github.com/orgs/community/discussions/29817#discussioncomment-4217615
+keymap.set("i", "<C-f>", "copilot#Accept('<CR>')", { silent = true, expr = true, replace_keycodes = false })
