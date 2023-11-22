@@ -6,13 +6,7 @@ local keymap = vim.keymap
 keymap.set("n", "<leader>e", ":NvimTreeToggle <CR>")
 
 -- telescope
--- keymap.set(
--- 	"",
--- 	"<leader>fs",
--- 	":lua require('telescope.builtin').grep_string({ search = vim.fn.input('Grep For >')})<CR>"
--- )
 keymap.set("n", "<leader>ff", ":lua require('telescope.builtin').find_files()<CR>")
--- keymap.set("n", "<leader>fg", ":lua require('telescope.builtin').live_grep()<CR>")
 keymap.set("n", "<leader>fg", ":lua require('telescope').extensions.live_grep_args.live_grep_args()<CR>")
 keymap.set("n", "<leader>fs", ":lua require('telescope.builtin').grep_string()<CR>")
 keymap.set("n", "<leader>fh", ":lua require('telescope.builtin').help_tags()<CR>")
@@ -20,6 +14,10 @@ keymap.set("n", "<leader>km", ":lua require('telescope.builtin').keymaps()<CR>")
 keymap.set("n", "<leader>fr", ":lua require('telescope.builtin').resume()<CR>")
 keymap.set("n", "<leader>pv", "<cmd>Ex<CR>")
 keymap.set("n", "<leader>fr", ":lua require('telescope.builtin').lsp_references({ noremap = true, silent = true })<CR>")
+
+-- harpoon
+keymap.set("n", "<leader>pa", ":lua require('harpoon.mark').add_file()<CR>")
+keymap.set("n", "<leader>pm", ":lua require('harpoon.ui').toggle_quick_menu()<CR>")
 
 -- Position cursor to the middle of the screen when searching
 keymap.set("n", "n", "nzz")

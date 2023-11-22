@@ -121,6 +121,9 @@ return packer.startup(function(use)
 		lazy = false,
 	})
 
-	-- Github Copilot
-	use("github/copilot.vim")
+	-- Harpoon for quicker file navigation
+	use("ThePrimeagen/harpoon")
+
+	-- Github Copilot - trial ended. Uncomment if I get it again
+	-- use("github/copilot.vim")
 end)
