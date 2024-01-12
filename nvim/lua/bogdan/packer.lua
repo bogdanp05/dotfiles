@@ -71,9 +71,9 @@ return packer.startup(function(use)
 	use("hrsh7th/cmp-buffer") -- source for text in buffer
 	use("hrsh7th/cmp-path") -- source for file system paths
 
-    -- Snippets
-    use("L3MON4D3/LuaSnip") -- snippet engine
-    use("saadparwaiz1/cmp_luasnip") -- for autocompletion 
+	-- Snippets
+	use("L3MON4D3/LuaSnip") -- snippet engine
+	use("saadparwaiz1/cmp_luasnip") -- for autocompletion
 
 	-- Managing and installing LSP servers, linters, and formatters
 	use("williamboman/mason.nvim") -- in charge of managing LSP servers, linters & formatters
@@ -120,4 +120,10 @@ return packer.startup(function(use)
 		"christoomey/vim-tmux-navigator",
 		lazy = false,
 	})
+
+	-- Harpoon for quicker file navigation
+	use("ThePrimeagen/harpoon")
+
+	-- Github Copilot - trial ended. Uncomment if I get it again
+	-- use("github/copilot.vim")
 end)
