@@ -41,6 +41,10 @@ bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
 bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
 
+# Enable print screen
+bindsym Print exec gnome-screenshot -i
+bindsym $mod+Print exec gnome-screenshot -a
+
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
@@ -63,10 +67,10 @@ bindsym $mod+d exec --no-startup-id dmenu_run
 # bindcode $mod+40 exec --no-startup-id i3-dmenu-desktop
 
 # change focus
-bindsym $mod+j focus left
-bindsym $mod+k focus down
-bindsym $mod+l focus up
-bindsym $mod+semicolon focus right
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Left focus left
@@ -75,10 +79,10 @@ bindsym $mod+Up focus up
 bindsym $mod+Right focus right
 
 # move focused window
-bindsym $mod+Shift+j move left
-bindsym $mod+Shift+k move down
-bindsym $mod+Shift+l move up
-bindsym $mod+Shift+semicolon move right
+bindsym $mod+Shift+h move left
+bindsym $mod+Shift+j move down
+bindsym $mod+Shift+k move up
+bindsym $mod+Shift+l move right
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Shift+Left move left
@@ -87,10 +91,10 @@ bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 
 # split in horizontal orientation
-bindsym $mod+h split h
+bindsym $mod+v split h
 
 # split in vertical orientation
-bindsym $mod+v split v
+bindsym $mod+apostrophe split v
 
 # enter fullscreen mode for the focused container
 bindsym $mod+f fullscreen toggle
@@ -114,9 +118,9 @@ bindsym $mod+a focus parent
 
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
-set $ws1 "1"
-set $ws2 "2"
-set $ws3 "3"
+set $ws1 "1: Slack"
+set $ws2 "2: Tmux"
+set $ws3 "3: Brave"
 set $ws4 "4"
 set $ws5 "5"
 set $ws6 "6"
@@ -138,16 +142,21 @@ bindsym $mod+9 workspace number $ws9
 bindsym $mod+0 workspace number $ws10
 
 # move focused container to workspace
-bindsym $mod+Shift+1 move container to workspace number $ws1
-bindsym $mod+Shift+2 move container to workspace number $ws2
-bindsym $mod+Shift+3 move container to workspace number $ws3
-bindsym $mod+Shift+4 move container to workspace number $ws4
-bindsym $mod+Shift+5 move container to workspace number $ws5
-bindsym $mod+Shift+6 move container to workspace number $ws6
-bindsym $mod+Shift+7 move container to workspace number $ws7
-bindsym $mod+Shift+8 move container to workspace number $ws8
-bindsym $mod+Shift+9 move container to workspace number $ws9
-bindsym $mod+Shift+0 move container to workspace number $ws10
+bindsym $mod+Shift+1 move container to workspace number $ws1; workspace number $ws1
+bindsym $mod+Shift+2 move container to workspace number $ws2; workspace number $ws2
+bindsym $mod+Shift+3 move container to workspace number $ws3; workspace number $ws3
+bindsym $mod+Shift+4 move container to workspace number $ws4; workspace number $ws4
+bindsym $mod+Shift+5 move container to workspace number $ws5; workspace number $ws5
+bindsym $mod+Shift+6 move container to workspace number $ws6; workspace number $ws6
+bindsym $mod+Shift+7 move container to workspace number $ws7; workspace number $ws7
+bindsym $mod+Shift+8 move container to workspace number $ws8; workspace number $ws8
+bindsym $mod+Shift+9 move container to workspace number $ws9; workspace number $ws9
+bindsym $mod+Shift+0 move container to workspace number $ws10; workspace number $ws10
+
+# force apps to open on specific workspaces
+# assign [class="Slack"] $ws1
+# assign [class="Gnome-terminal"] $ws2
+# assign [class="Brave-browser"] $ws3
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -183,6 +192,9 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
+# remove edge borders
+hide_edge_borders both
+
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
@@ -190,9 +202,37 @@ bar {
 }
 
 # map lock
-bindsym $mod+shift+x exec i3lock
+bindsym $mod+shift+x exec i3lock --color "000000"
 
 # Media player controls
 bindcode 231 exec playerctl play-pause
 bindcode 164 exec playerctl next
 bindcode 226 exec playerctl previous
+
+# Brightness controls
+bindsym XF86MonBrightnessUp exec --no-startup-id brightnessctl set +10%
+bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl set 10%-
+
+# set key repeat speed
+exec --no-startup-id xset r rate 300 25
+
+# set wallpaper
+exec_always feh --bg-scale /home/bogdan.petre/Pictures/patagonia.jpg
+
+# make transparent terminal
+exec --no-startup-id compton
+
+# network gui
+exec --no-startup-id nm-applet
+
+# load applications at startup
+# TODO: slack is slow to open and then it just ends up opening in the last workspace
+exec i3-msg 'workspace number $ws1; exec slack'
+exec i3-msg 'workspace number $ws2; exec i3-sensible-terminal'
+exec i3-msg 'workspace number $ws3; exec brave-browser'
+
+
+# display setup
+# just install autorandr ackshually
+# exec_always xrandr --output eDP-1 --primary --mode 1920x1200 --pos 713x1440 --rotate normal --output HDMI-1 --off --output DP-1 --off --output DP-2 --off --output DP-3 --mode 3440x1440 --pos 0x0 --rotate normal --output DP-4 --off
+
