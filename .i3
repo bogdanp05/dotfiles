@@ -192,6 +192,9 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
+# remove edge borders
+hide_edge_borders both
+
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
@@ -199,7 +202,7 @@ bar {
 }
 
 # map lock
-bindsym $mod+shift+x exec i3lock
+bindsym $mod+shift+x exec i3lock --color "000000"
 
 # Media player controls
 bindcode 231 exec playerctl play-pause
