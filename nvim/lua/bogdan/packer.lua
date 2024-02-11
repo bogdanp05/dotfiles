@@ -33,10 +33,6 @@ return packer.startup(function(use)
 	-- Colorscheme
 	use("bluz71/vim-nightfly-guicolors")
 
-	-- Text editing
-	use("tpope/vim-surround")
-	use("vim-scripts/ReplaceWithRegister")
-
 	-- Comments
 	use("numToStr/Comment.nvim")
 
@@ -124,6 +120,6 @@ return packer.startup(function(use)
 	-- Harpoon for quicker file navigation
 	use("ThePrimeagen/harpoon")
 
-	-- Github Copilot - trial ended. Uncomment if I get it again
-	-- use("github/copilot.vim")
+	-- Github Copilot
+	use("github/copilot.vim")
 end)
