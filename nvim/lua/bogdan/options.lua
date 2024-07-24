@@ -1,5 +1,5 @@
 -- global vars
-vim.g.python3_host_prog = "~/.local/bin/python3-aiven-fedora-37"
+vim.g.python3_host_prog = "~/.local/bin/python3-aiven-fedora-38"
 
 -- I don't like to type a lot
 local opt = vim.opt
@@ -53,3 +53,6 @@ opt.spelllang = "en_us"
 
 -- copilot stuff
 vim.g.copilot_assume_mapped = true
+
+-- colorscheme
+vim.g.nightflyTransparent = true
