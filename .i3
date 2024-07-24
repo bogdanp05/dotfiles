@@ -202,7 +202,9 @@ bar {
 }
 
 # map lock
-bindsym $mod+shift+x exec i3lock --color "000000"
+# bindsym $mod+shift+x exec i3lock --color "000000"
+# bindsym $mod+shift+x exec i3lock --image "/home/bogdan.petre/Pictures/wallpapers/acatenango.jpg"
+bindsym $mod+shift+x exec ~/.config/i3/lock_script.sh -i ~/Pictures/wallpapers/patagonia.jpg
 
 # Media player controls
 bindcode 231 exec playerctl play-pause
@@ -217,7 +219,8 @@ bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl set 10%-
 exec --no-startup-id xset r rate 300 25
 
 # set wallpaper
-exec_always feh --bg-scale /home/bogdan.petre/Pictures/patagonia.jpg
+# exec_always feh --randomize --bg-scale /home/bogdan.petre/Pictures/wallpapers/*
+exec ~/.config/i3/feh_script.sh
 
 # make transparent terminal
 exec --no-startup-id compton
@@ -236,3 +239,11 @@ exec i3-msg 'workspace number $ws3; exec brave-browser'
 # just install autorandr ackshually
 # exec_always xrandr --output eDP-1 --primary --mode 1920x1200 --pos 713x1440 --rotate normal --output HDMI-1 --off --output DP-1 --off --output DP-2 --off --output DP-3 --mode 3440x1440 --pos 0x0 --rotate normal --output DP-4 --off
 
+
+# disable X screensaver
+exec_always --no-startup-id xset s 1200
+# disable X power saving
+# exec_always --no-startup-id xset -dpms
+
+# lock screen after 30 minutes
+exec --no-startup-id xautolock -time 30 -locker "i3lock -i ~Pictures/wallpapers/mt_kenya.jpg"
