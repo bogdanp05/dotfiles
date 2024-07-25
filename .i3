@@ -247,3 +247,6 @@ exec_always --no-startup-id xset s 1200
 
 # lock screen after 30 minutes
 exec --no-startup-id xautolock -time 30 -locker "i3lock -i ~Pictures/wallpapers/mt_kenya.jpg"
+
+# mvoe all workspaces to the DP-3 external monitor
+bindsym $mod+shift+d exec ~/.config/i3/move_workspaces.sh -o DP-3
