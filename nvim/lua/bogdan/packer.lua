@@ -91,7 +91,7 @@ return packer.startup(function(use)
 		"nvim-treesitter/nvim-treesitter",
 		run = ":TSUpdate",
 	})
-	use("nvim-treesitter/nvim-treesitter-context")
+	-- use("nvim-treesitter/nvim-treesitter-context")
 
 	-- Auto closing stuff
 	use("windwp/nvim-autopairs") -- autoclose parens, brackets, quotes, etc...
@@ -99,6 +99,8 @@ return packer.startup(function(use)
 
 	-- git integration
 	use("lewis6991/gitsigns.nvim") -- show line modifications on left hand side
+	use("tpope/vim-fugitive") -- git commands in nvim
+	use("tpope/vim-rhubarb") -- enable GBrowse in fugitive
 
 	-- Variable highlighting
 	use("RRethy/vim-illuminate")

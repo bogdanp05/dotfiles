@@ -51,3 +51,12 @@ keymap.set("n", "<Esc>", "<C-\\><C-n><CR>")
 
 -- Copilot, https://github.com/orgs/community/discussions/29817#discussioncomment-4217615
 keymap.set("i", "<C-f>", "copilot#Accept('<CR>')", { silent = true, expr = true, replace_keycodes = false })
+
+-- Copy link to line in aiven repo core
+-- keymap.set(
+-- 	"n",
+-- 	"<leader>gh",
+-- 	":let @+=('https://github.com/aiven/aiven-core/blob/main/' . expand('%:h') . '/' . expand('%:t') . '#L' . line('.'))<CR>"
+-- )
+-- Copy link to line in any GitHub repo
+keymap.set("n", "<leader>gh", ":.GBrowse!<CR>")
