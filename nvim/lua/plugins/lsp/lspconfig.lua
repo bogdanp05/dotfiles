@@ -8,11 +8,6 @@ if not cmp_nvim_lsp_status then
 	return
 end
 
-local typescript_setup, typescript = pcall(require, "typescript")
-if not typescript_setup then
-	return
-end
-
 local keymap = vim.keymap
 
 -- enable keybinds only for when LSP server available
@@ -37,7 +32,7 @@ local on_attach = function(client, bufnr)
 	keymap.set("n", "<leader>gr", "<cmd>lua vim.lsp.buf.references()<CR>", opts)
 
 	-- typescript specific keymaps (e.g. rename file and update imports)
-	if client.name == "tsserver" then
+	if client.name == "ts_ls" then
 		keymap.set("n", "<leader>rf", ":TypescriptRenameFile<CR>") -- rename file and update imports
 		keymap.set("n", "<leader>oi", ":TypescriptOrganizeImports<CR>") -- organize imports (not in youtube nvim video)
 		keymap.set("n", "<leader>ru", ":TypescriptRemoveUnused<CR>") -- remove unused variables (not in youtube nvim video)
@@ -61,8 +56,30 @@ lspconfig["html"].setup({
 	on_attach = on_attach,
 })
 
+-- https://github.com/LunarVim/LunarVim/discussions/4239#discussioncomment-6223638
+local function filter_ts_ls_diagnostics(_, result, ctx, config)
+	if result.diagnostics == nil then
+		return
+	end
+	-- ignore some tsserver diagnostics
+	local idx = 1
+	while idx <= #result.diagnostics do
+		local entry = result.diagnostics[idx]
+		-- codes: https://github.com/microsoft/TypeScript/blob/main/src/compiler/diagnosticMessages.json
+		if entry.code == 80001 then
+			-- { message = "File is a CommonJS module; it may be converted to an ES module.", }
+			table.remove(result.diagnostics, idx)
+		else
+			idx = idx + 1
+		end
+	end
+	vim.lsp.diagnostic.on_publish_diagnostics(_, result, ctx, config)
+end
+
+vim.lsp.handlers["textDocument/publishDiagnostics"] = filter_ts_ls_diagnostics
+
 -- configure typescript server with plugin
-typescript.setup({
+lspconfig["ts_ls"].setup({
 	server = {
 		capabilities = capabilities,
 		on_attach = on_attach,
@@ -112,6 +129,48 @@ lspconfig["pyright"].setup({
 			analysis = {
 				-- I want to use mypy type checker, not pyright's
 				typeCheckingMode = "off",
+				-- Make avn.* available
+				extraPaths = {
+					"py/import2rpm/src",
+					"py/avnpkg/src",
+					"py/initiator/src",
+					"py/phantom/src",
+					"py/undefined/src",
+					"py/xxhash/src",
+					"py/schemas/src",
+					"py/secrets/src",
+					"py/atomic-write/src",
+					"py/datetime/src",
+					"py/json-io/src",
+					"py/json/src",
+					"py/backoff/src",
+					"py/logging/src",
+					"py/models/src",
+					"py/redact/src",
+					"py/url/src",
+					"py/enum/src",
+					"py/pg-connection/src",
+					"py/systemd/src",
+					"py/stats-client/src",
+					"py/encryption/src",
+					"py/trace-id/src",
+					"py/buildkite-artifacts/src",
+					"py/cloudflare/src",
+					"py/deps-bootstrap/src",
+					"py/deps-report/src",
+					"py/dg/src",
+					"py/disk-usage/src",
+					"py/project-selector/src",
+					"py/project/src",
+					"py/reposit/src",
+					"py/test-tools/src",
+					"py/units/src",
+					"py/rapu/src",
+					"py/schemas-derive/src",
+					"py/test-java/src",
+					"py/test-zookeeper/src",
+					"py/daemon/src",
+				},
 			},
 		},
 	},
@@ -139,10 +198,17 @@ lspconfig["gopls"].setup({
 lspconfig["rust_analyzer"].setup({
 	capabilities = capabilities,
 	on_attach = on_attach,
+	filetypes = { "rust" },
 })
 
 -- configure C server
 lspconfig["clangd"].setup({
+	capabilities = capabilities,
+	on_attach = on_attach,
+})
+
+-- configure SQL server
+lspconfig["sqls"].setup({
 	capabilities = capabilities,
 	on_attach = on_attach,
 })
