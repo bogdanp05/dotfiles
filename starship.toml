@@ -5,6 +5,7 @@ $username\
 $directory\
 [](fg:#DA627D bg:#FCA17D)\
 $git_branch\
+$git_commit\
 $git_status\
 [](fg:#FCA17D bg:#86BBD8)\
 $c\
@@ -14,7 +15,6 @@ $golang\
 $gradle\
 $haskell\
 $java\
-$julia\
 $nodejs\
 $nim\
 $rust\
@@ -97,6 +97,12 @@ symbol = ""
 style = "bg:#FCA17D"
 format = '[ $symbol $branch ]($style)'
 truncation_length = 10
+only_attached = true
+
+[git_commit]
+style = "bg:#FCA17D"
+format = '[ $hash$tag]($style)'
+only_detached = true
 
 [git_status]
 style = "bg:#FCA17D"
