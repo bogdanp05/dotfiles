@@ -1,0 +1,13 @@
+[window]
+
+opacity = 0.75
+
+[font]
+normal.family = "MesloLGL Nerd Font"
+normal.style = "Regular"
+bold.family = "MesloLGL Nerd Font"
+italic.family = "MesloLGL Nerd Font"
+bold_italic.family = "MesloLGL Nerd Font"
+
+[scrolling]
+history = 99999
