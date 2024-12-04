@@ -34,6 +34,8 @@ $container\
 # Disable the blank line at the start of the prompt
 add_newline = false
 
+command_timeout = 5000
+
 # You can also replace your username with a neat symbol like   or disable this
 # and use the os module below
 [username]
@@ -113,7 +115,7 @@ behind = '⇣${count}'
 untracked = '?${count}'
 modified = '!${count}'
 staged = '+${count}'
-stashed ='$${count}'
+stashed ='\$${count}'
 deleted = '✘${count}'
 
 [golang]
