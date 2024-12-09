@@ -30,7 +30,7 @@ mason_lspconfig.setup({
 		"rust_analyzer",
 		"tailwindcss",
 		"terraformls",
-		"tsserver",
+		"ts_ls",
 		"vuels",
 	},
 	automatic_installation = true,

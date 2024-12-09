@@ -15,11 +15,6 @@ nvimtree.setup({
 	open_on_tab = true,
 	view = {
 		adaptive_size = false,
-		mappings = {
-			list = {
-				{ key = "-", action = "dir_up" },
-			},
-		},
 	},
 	renderer = {
 		group_empty = true,
@@ -27,9 +22,9 @@ nvimtree.setup({
 			glyphs = {
 				folder = {
 					-- arrow_closed = "",
-					arrow_closed = "🡆",
+					arrow_closed = "󰜴",
 					-- arrow_open = "",
-					arrow_open = "🡇",
+					arrow_open = "󰜮",
 				},
 			},
 		},
