@@ -5,6 +5,7 @@ $username\
 $directory\
 [](fg:#DA627D bg:#FCA17D)\
 $git_branch\
+$git_commit\
 $git_status\
 [](fg:#FCA17D bg:#86BBD8)\
 $c\
@@ -14,7 +15,6 @@ $golang\
 $gradle\
 $haskell\
 $java\
-$julia\
 $nodejs\
 $nim\
 $rust\
@@ -33,6 +33,8 @@ $container\
 
 # Disable the blank line at the start of the prompt
 add_newline = false
+
+command_timeout = 5000
 
 # You can also replace your username with a neat symbol like   or disable this
 # and use the os module below
@@ -97,6 +99,12 @@ symbol = ""
 style = "bg:#FCA17D"
 format = '[ $symbol $branch ]($style)'
 truncation_length = 10
+only_attached = true
+
+[git_commit]
+style = "bg:#FCA17D"
+format = '[ $hash$tag]($style)'
+only_detached = true
 
 [git_status]
 style = "bg:#FCA17D"
@@ -107,7 +115,7 @@ behind = '⇣${count}'
 untracked = '?${count}'
 modified = '!${count}'
 staged = '+${count}'
-stashed ='$${count}'
+stashed ='\$${count}'
 deleted = '✘${count}'
 
 [golang]

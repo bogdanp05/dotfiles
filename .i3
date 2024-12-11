@@ -53,7 +53,7 @@ floating_modifier $mod
 tiling_drag modifier titlebar
 
 # start a terminal
-bindsym $mod+Return exec i3-sensible-terminal
+bindsym $mod+Return exec alacritty
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -153,11 +153,6 @@ bindsym $mod+Shift+8 move container to workspace number $ws8; workspace number $
 bindsym $mod+Shift+9 move container to workspace number $ws9; workspace number $ws9
 bindsym $mod+Shift+0 move container to workspace number $ws10; workspace number $ws10
 
-# force apps to open on specific workspaces
-# assign [class="Slack"] $ws1
-# assign [class="Gnome-terminal"] $ws2
-# assign [class="Brave-browser"] $ws3
-
 # reload the configuration file
 bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
@@ -231,16 +226,18 @@ exec --no-startup-id nm-applet
 # load applications at startup
 # TODO: slack is slow to open and then it just ends up opening in the last workspace
 exec i3-msg 'workspace number $ws1; exec slack'
-exec i3-msg 'workspace number $ws2; exec i3-sensible-terminal'
+exec i3-msg 'workspace number $ws2; exec alacritty'
 exec i3-msg 'workspace number $ws3; exec brave-browser'
 
+# picom -> picom needs to start to enable transparent terminal
+exec_always --no-startup-id picom --backend xrender &
 
 # display setup
 # just install autorandr ackshually
 # exec_always xrandr --output eDP-1 --primary --mode 1920x1200 --pos 713x1440 --rotate normal --output HDMI-1 --off --output DP-1 --off --output DP-2 --off --output DP-3 --mode 3440x1440 --pos 0x0 --rotate normal --output DP-4 --off
 
 
-# disable X screensaver
+# configure X screensaver
 exec_always --no-startup-id xset s 1200
 # disable X power saving
 # exec_always --no-startup-id xset -dpms
