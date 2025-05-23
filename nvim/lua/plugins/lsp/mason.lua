@@ -33,7 +33,7 @@ mason_lspconfig.setup({
 		"ts_ls",
 		"vuels",
 	},
-	automatic_installation = true,
+	automatic_enable = false,
 })
 
 mason_null_ls.setup({
@@ -44,7 +44,7 @@ mason_null_ls.setup({
 		"isort",
 		"jq",
 		"mypy",
-		"rustfmt",
+		-- "rustfmt",
 		"stylua",
 	},
 	-- auto-install configured formatters & linters (with null-ls)

@@ -78,9 +78,13 @@ return packer.startup(function(use)
 	-- Configuring lsp servers
 	use("neovim/nvim-lspconfig") -- easily configure language servers
 	use("hrsh7th/cmp-nvim-lsp") -- for autocompletion
-	use({ "glepnir/lspsaga.nvim", branch = "main" }) -- enhanced lsp uis
+
 	use("jose-elias-alvarez/typescript.nvim") -- additional functionality for typescript server (e.g. rename file & update imports)
 	use("onsails/lspkind.nvim") -- vs-code like icons for autocompletion
+
+	-- Formatting & linting
+	use("jose-elias-alvarez/null-ls.nvim") -- configure formatters & linters
+	use("jayp0521/mason-null-ls.nvim") -- bridges gap b/w mason & null-ls
 
 	-- Treesitter for syntax highlighting
 	use({
@@ -117,6 +121,15 @@ return packer.startup(function(use)
 
 	-- Harpoon for quicker file navigation
 	use("ThePrimeagen/harpoon")
+
+	-- LSPSaga
+	use({
+		"nvimdev/lspsaga.nvim",
+		after = "nvim-lspconfig",
+		config = function()
+			require("lspsaga").setup({})
+		end,
+	})
 
 	-- Github Copilot
 	use("github/copilot.vim")

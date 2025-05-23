@@ -12,7 +12,9 @@ telescope.setup({
 			".mypy_cache",
 			".git/",
 			".pytest_cache",
+			".ruff_cache",
 			"node_modules",
+			"rpms/",
 		},
 	},
 	pickers = {
@@ -21,10 +23,7 @@ telescope.setup({
 			no_ignore = true,
 		},
 		live_grep = {
-			---@diagnostic disable-next-line: unused-local
-			additional_args = function(opts)
-				return { "--hidden" }
-			end,
+			additional_args = { "--hidden" },
 		},
 	},
 })
