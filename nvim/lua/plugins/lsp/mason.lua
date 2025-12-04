@@ -8,11 +8,6 @@ if not mason_lspconfig_status then
 	return
 end
 
-local mason_null_ls_status, mason_null_ls = pcall(require, "mason-null-ls")
-if not mason_null_ls_status then
-	return
-end
-
 mason.setup({
 	-- I want to use env binaries if they exist; otherwise mason binaries. This is for black and mypy
 	PATH = "append",
@@ -33,20 +28,5 @@ mason_lspconfig.setup({
 		"ts_ls",
 		"vuels",
 	},
-	automatic_installation = true,
-})
-
-mason_null_ls.setup({
-	-- list of formatters & linters for mason to install
-	ensure_installed = {
-		"black",
-		"flake8",
-		"isort",
-		"jq",
-		"mypy",
-		"rustfmt",
-		"stylua",
-	},
-	-- auto-install configured formatters & linters (with null-ls)
 	automatic_installation = true,
 })
