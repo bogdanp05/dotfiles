@@ -1,8 +1,3 @@
-local lspconfig_status, lspconfig = pcall(require, "lspconfig")
-if not lspconfig_status then
-	return
-end
-
 local cmp_nvim_lsp_status, cmp_nvim_lsp = pcall(require, "cmp_nvim_lsp")
 if not cmp_nvim_lsp_status then
 	return
@@ -16,7 +11,6 @@ local on_attach = function(client, bufnr)
 	local opts = { noremap = true, silent = true, buffer = bufnr }
 
 	-- set keybinds
-	-- keymap.set("n", "gf", "<cmd>Lspsaga lsp_finder<CR>", opts) -- show definition, references
 	keymap.set("n", "gf", "<cmd>lua vim.lsp.buf.references()<CR>", opts) -- references
 	keymap.set("n", "gD", "<cmd>lua vim.lsp.buf.definition()<CR>", opts) -- got to declaration
 	keymap.set("n", "gd", "<cmd>Lspsaga peek_definition<CR>", opts) -- see definition and make edits in window
@@ -51,10 +45,10 @@ for type, icon in pairs(signs) do
 end
 
 -- configure html server
-lspconfig["html"].setup({
+vim.lsp.config.html = {
 	capabilities = capabilities,
 	on_attach = on_attach,
-})
+}
 
 -- https://github.com/LunarVim/LunarVim/discussions/4239#discussioncomment-6223638
 local function filter_ts_ls_diagnostics(_, result, ctx, config)
@@ -79,27 +73,27 @@ end
 vim.lsp.handlers["textDocument/publishDiagnostics"] = filter_ts_ls_diagnostics
 
 -- configure typescript server with plugin
-lspconfig["ts_ls"].setup({
+vim.lsp.config.ts_ls = {
 	server = {
 		capabilities = capabilities,
 		on_attach = on_attach,
 	},
-})
+}
 
 -- configure css server
-lspconfig["cssls"].setup({
+vim.lsp.config.cssls = {
 	capabilities = capabilities,
 	on_attach = on_attach,
-})
+}
 
 -- configure tailwindcss server
-lspconfig["tailwindcss"].setup({
+vim.lsp.config.tailwindcss ={
 	capabilities = capabilities,
 	on_attach = on_attach,
-})
+}
 
 -- configure lua server (with special settings)
-lspconfig["lua_ls"].setup({
+vim.lsp.config.lua_ls = {
 	capabilities = capabilities,
 	on_attach = on_attach,
 	settings = {
@@ -118,10 +112,10 @@ lspconfig["lua_ls"].setup({
 			},
 		},
 	},
-})
+}
 
 -- configure python server
-lspconfig["pyright"].setup({
+vim.lsp.config.pyright = {
 	capabilities = capabilities,
 	on_attach = on_attach,
 	settings = {
@@ -129,86 +123,59 @@ lspconfig["pyright"].setup({
 			analysis = {
 				-- I want to use mypy type checker, not pyright's
 				typeCheckingMode = "off",
-				-- Make avn.* available
-				extraPaths = {
-					"py/import2rpm/src",
-					"py/avnpkg/src",
-					"py/initiator/src",
-					"py/phantom/src",
-					"py/undefined/src",
-					"py/xxhash/src",
-					"py/schemas/src",
-					"py/secrets/src",
-					"py/atomic-write/src",
-					"py/datetime/src",
-					"py/json-io/src",
-					"py/json/src",
-					"py/backoff/src",
-					"py/logging/src",
-					"py/models/src",
-					"py/redact/src",
-					"py/url/src",
-					"py/enum/src",
-					"py/pg-connection/src",
-					"py/systemd/src",
-					"py/stats-client/src",
-					"py/encryption/src",
-					"py/trace-id/src",
-					"py/buildkite-artifacts/src",
-					"py/cloudflare/src",
-					"py/deps-bootstrap/src",
-					"py/deps-report/src",
-					"py/dg/src",
-					"py/disk-usage/src",
-					"py/project-selector/src",
-					"py/project/src",
-					"py/reposit/src",
-					"py/test-tools/src",
-					"py/units/src",
-					"py/rapu/src",
-					"py/schemas-derive/src",
-					"py/test-java/src",
-					"py/test-zookeeper/src",
-					"py/daemon/src",
-				},
 			},
 		},
 	},
-})
+}
 
 -- configure terraform server
-lspconfig["terraformls"].setup({
+vim.lsp.config.terraformls = {
 	capabilities = capabilities,
 	on_attach = on_attach,
-})
+}
 
 -- configure Vue server
-lspconfig["vuels"].setup({
+vim.lsp.config.vuels = {
 	capabilities = capabilities,
 	on_attach = on_attach,
-})
+}
 
 -- configure Go server
-lspconfig["gopls"].setup({
+vim.lsp.config.gopls = {
 	capabilities = capabilities,
 	on_attach = on_attach,
-})
+}
 
 -- configure Rust server
-lspconfig["rust_analyzer"].setup({
+vim.lsp.config.rust_analyzer = {
 	capabilities = capabilities,
 	on_attach = on_attach,
 	filetypes = { "rust" },
-})
+}
 
 -- configure C server
-lspconfig["clangd"].setup({
+vim.lsp.config.clangd = {
 	capabilities = capabilities,
 	on_attach = on_attach,
-})
+}
 
 -- configure SQL server
-lspconfig["sqls"].setup({
+vim.lsp.config.sqls = {
 	capabilities = capabilities,
 	on_attach = on_attach,
+}
+
+vim.lsp.enable({
+    "clangd",
+    "cssls",
+    "gopls",
+    "html",
+    "lua_ls",
+    "pyright",
+    "rust_analyzer",
+    "sqls",
+    "tailwindcss",
+    "terraformls",
+    "ts_ls",
+    "vuels",
 })
