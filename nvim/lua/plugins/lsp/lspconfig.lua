@@ -11,6 +11,7 @@ local on_attach = function(client, bufnr)
 	local opts = { noremap = true, silent = true, buffer = bufnr }
 
 	-- set keybinds
+	-- keymap.set("n", "gf", "<cmd>Lspsaga lsp_finder<CR>", opts) -- show definition, references
 	keymap.set("n", "gf", "<cmd>lua vim.lsp.buf.references()<CR>", opts) -- references
 	keymap.set("n", "gD", "<cmd>lua vim.lsp.buf.definition()<CR>", opts) -- got to declaration
 	keymap.set("n", "gd", "<cmd>Lspsaga peek_definition<CR>", opts) -- see definition and make edits in window
@@ -87,13 +88,13 @@ vim.lsp.config.cssls = {
 }
 
 -- configure tailwindcss server
-vim.lsp.config.tailwindcss ={
+vim.lsp.config.tailwindcss = {
 	capabilities = capabilities,
 	on_attach = on_attach,
 }
 
 -- configure lua server (with special settings)
-vim.lsp.config.lua_ls = {
+vim.lsp.config.lus_ls = {
 	capabilities = capabilities,
 	on_attach = on_attach,
 	settings = {
@@ -128,14 +129,26 @@ vim.lsp.config.pyright = {
 	},
 }
 
--- configure terraform server
-vim.lsp.config.terraformls = {
-	capabilities = capabilities,
-	on_attach = on_attach,
+-- configure ty python server
+local root = vim.fs.root(0, { 'pyproject.toml', '.git' })
+local py_root = root .. '/py'
+local paths = {}
+for _, dir in ipairs(vim.fn.glob(py_root .. '/*/src', true, true)) do
+  table.insert(paths, dir)
+end
+table.insert(paths, "/usr/lib/python3.13/site-packages/")
+vim.lsp.config.ty = {
+    capabilities = capabilities,
+    on_attach = on_attach,
+    cmd = { "ty", "server" },
+    cmd_env = {
+      PYTHONPATH = table.concat(paths, ':'),
+    },
 }
 
--- configure Vue server
-vim.lsp.config.vuels = {
+
+-- configure terraform server
+vim.lsp.config.terraformls = {
 	capabilities = capabilities,
 	on_attach = on_attach,
 }
@@ -170,12 +183,12 @@ vim.lsp.enable({
     "cssls",
     "gopls",
     "html",
-    "lua_ls",
-    "pyright",
+    "lus_ls",
+    -- "pyright",
     "rust_analyzer",
     "sqls",
     "tailwindcss",
     "terraformls",
     "ts_ls",
-    "vuels",
+    "ty",
 })
