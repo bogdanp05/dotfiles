@@ -5,6 +5,16 @@ end
 
 telescope.setup({
 	defaults = {
+		vimgrep_arguments = {
+			"rg",
+			"--color=never",
+			"--no-heading",
+			"--with-filename",
+			"--line-number",
+			"--column",
+			"--smart-case",
+			"--hidden",
+		},
 		file_ignore_patterns = {
 			"__pycache__",
 			".venv",
@@ -19,12 +29,6 @@ telescope.setup({
 		find_files = {
 			hidden = true,
 			no_ignore = true,
-		},
-		live_grep = {
-			---@diagnostic disable-next-line: unused-local
-			additional_args = function(opts)
-				return { "--hidden" }
-			end,
 		},
 	},
 })
