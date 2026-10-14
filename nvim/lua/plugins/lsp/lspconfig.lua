@@ -130,17 +130,22 @@ vim.lsp.config.pyright = {
 }
 
 -- configure ty python server
-local root = vim.fs.root(0, { 'pyproject.toml', '.git' })
-local py_root = root .. '/py'
+-- .git only: a nested py/<project>/pyproject.toml would otherwise win and hide py/*/src
+local root = vim.fs.root(0, '.git') or vim.fn.getcwd()
 local paths = {}
-for _, dir in ipairs(vim.fn.glob(py_root .. '/*/src', true, true)) do
+for _, dir in ipairs(vim.fn.glob(root .. '/py/*/src', true, true)) do
   table.insert(paths, dir)
 end
-table.insert(paths, "/usr/lib/python3.13/site-packages/")
+-- ty doesn't discover system site-packages without a venv; ask the toolbox python
+local site = vim.fn.systemlist({ "python3", "-c", "import site; print('\\n'.join(site.getsitepackages()))" })
+if vim.v.shell_error == 0 then
+  vim.list_extend(paths, site)
+end
 vim.lsp.config.ty = {
     capabilities = capabilities,
     on_attach = on_attach,
     cmd = { "ty", "server" },
+    root_markers = { '.git' },
     cmd_env = {
       PYTHONPATH = table.concat(paths, ':'),
     },
